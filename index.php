@@ -94,12 +94,10 @@ foreach ($arr as $key => $continents) {
         $word = explode(" ", $anim);
         $countword = count($word);
         if($countword > 1){
-
-            // $word тут массив из слов в строке.
-            $val_0 = array_shift($word); // Вытаскиваем первое слово, оно сейчас стоит под 0 ключом, при этом он удалится совсем из массива
-            shuffle($word); // Функция которая перемешивает все значения массива.      
-            array_unshift($word, $val_0); // Вставляем в массив $word в самое начало элемент $val_0(Тут у нас хранится первое слово.)
-            $arr3[$key][] = implode(' ',$word); // Склеиваем все элементы массива в одну строчку, разделяем их пробелом.
+            $val_0 = array_shift($word); 
+            shuffle($word);      
+            array_unshift($word, $val_0);
+            $arr3[$key][] = implode(' ',$word);
         }
     }
 }
