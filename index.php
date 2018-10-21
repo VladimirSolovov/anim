@@ -1,28 +1,30 @@
 <?php
 
 $arr = [
-	 "Africa" =>      ["Varanus scincus", 
-    				   "Psittacus erithacus", 
-    				   "Leptoptilos", 
-    				   "Tragelaphus eurycerus", 
-    				   "Spheniscus demersus", 
-    				   "Giraffa", 
-    				   "Panthera pardus", 
-    				   "Struthio camelus", 
-    				   "Simiae", 
-    			 	   "Pan"],
-   	 "Australia" =>   ["Notoryctemorphia", 
+	 'Africa' =>      ['Varanus scincus', 
+    				   'Psittacus erithacus', 
+    				   'Leptoptilos', 
+    				   'Tragelaphus eurycerus', 
+    				   'Spheniscus demersus', 
+    				   'Giraffa', 
+    				   'Panthera pardus', 
+    				   'Struthio camelus', 
+    				   'Simiae', 
+    			 	   'Pan'
+    			 	],
+   	 'Australia' =>   ["Notoryctemorphia", 
     				   "Dasyuromorphia", 
-    			       "Monotremata", 
+    			       "Atherina mochon pontica", 
     				   "Cacatuidae", 
-    				   "Dromaius novaehollandiae", 
+    				   "Dromaius novae hollandiae", 
     				   "Vombatidae", 
     				   "Macropus", 
     				   "Phascolarctos cinereus", 
     				   "Pavo cristatus", 
-    			   	   "Callipepla californica"],
-   	 "Eurasia" =>     ["Hemiechinus auritus", 
-    			 	   "Hirundo", 
+    			   	   "Callipepla californica"
+    			   	],
+   	 'Eurasia' =>     ["Hemiechinus auritus", 
+    			 	   "Camelus bactrianus ferus", 
     				   "Carpospiza",
     				   "Lynx", 
     				   "Canis lupus", 
@@ -30,8 +32,9 @@ $arr = [
     				   "Meles meles", 
     				   "Vulpes", 
     				   "Sus scrofa", 
-    				   "Capreolus"],
-  	 "NAmerica" =>    ["Ursus maritimus", 
+    				   "Capreolus"
+    				],
+  	 'NAmerica' =>    ["Ursus maritimus", 
     			  	   "Lemmini", 
     				   "Lepus arcticus", 
     				   "Bubo scandiacus", 
@@ -40,9 +43,10 @@ $arr = [
     				   "Tamiasciurus hudsonicus", 
     			 	   "Martes pennanti", 
     			   	   "Ondatra zibethicus", 
-    			 	   "Gulo gulo"],
-	 "SAmerica" =>    ["Dasypodidae", 
-	    		       "Chaetophractus villosus", 
+    			 	   "Gulo gulo"
+    			 	],
+	 'SAmerica' =>    ["Dasypodidae", 
+	    		       "Chaetophractus villosus losus", 
     			       "Bradypodidae", 
     			       "Myrmecophagidae", 
     		 	       "Sapajus nigritus", 
@@ -50,7 +54,8 @@ $arr = [
     			       "Alouatta", 
     			       "Coendou", 
     			 	   "Chinchilla", 
-    			   	   "Lagidium"],
+    			   	   "Lagidium"
+    			   	],
     
 			];
 
@@ -58,10 +63,9 @@ $arr = [
 	$arr3 = [];
 
 ?>
-    <h3>Массив с животными</h3>
+    <h2>Массив с животными</h2>
     <pre>
 <?
-// Массив с животными.
 print_r($arr);
 
 // -----------------------------------------------------------------
@@ -77,34 +81,32 @@ foreach ($arr as $key => $continents) {
 }
 
 ?>
-    <h3>Массив с животными у которых больше одного слова в названии</h3>
+    <h2>Массив с животными у которых больше одного слова в названии</h2>
     <pre>
 <?
-// Массив с животными у которых больше одного слова в названии.
 print_r($arr2);
-?></pre><?
-
-
-
-// Сделать выдуманных животных (перемешать слова)
-
-
+?>
+</pre>
+<?
+//--------------------------------------------------------------------
 foreach ($arr as $key => $continents) {
-    foreach ($continents as $anim) {
+    foreach ($continents as $anim) {	
         $word = explode(" ", $anim);
         $countword = count($word);
-        if($countword > 1){?><pre><?
+        if($countword > 1){
+
             // $word тут массив из слов в строке.
             $val_0 = array_shift($word); // Вытаскиваем первое слово, оно сейчас стоит под 0 ключом, при этом он удалится совсем из массива
-            shuffle($word); // Функция которая перемешивает все значения массива.
+            shuffle($word); // Функция которая перемешивает все значения массива.      
             array_unshift($word, $val_0); // Вставляем в массив $word в самое начало элемент $val_0(Тут у нас хранится первое слово.)
             $arr3[$key][] = implode(' ',$word); // Склеиваем все элементы массива в одну строчку, разделяем их пробелом.
         }
     }
 }
-
 ?>
-    <h3>Массив с выдуманными животными </h3>
-    <pre><?
+    <h2>Массив с выдуманными животными </h2>
+    <pre>
+<?
 print_r($arr3);
-?></pre><?
+?>
+</pre>
